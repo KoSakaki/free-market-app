@@ -1,4 +1,4 @@
-import { Body, Controller, Get,Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get,Param, Patch, Post } from '@nestjs/common';
 import { ItemsService } from './items.service';
 import { Item } from './item.model';
 import { ItemStatus } from './item-status.enum';
@@ -32,5 +32,15 @@ export class ItemsController {
         status: ItemStatus.ON_SALE
       }
     return this.ItemsService.create(item);
+  }
+
+  @Patch(':id')
+  updateStatus(@Param('id') id: string): Item {
+    return this.ItemsService.updateStatus(id);
+  }
+
+  @Delete(':id')
+  delete(@Param('id') id: string): void {
+    return this.ItemsService.delete(id);
   }
 }
