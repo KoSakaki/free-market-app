@@ -17,7 +17,7 @@ export class ItemsController {
     @Body('id') id:string,
     @Body('name') name:string,
     @Body('price') price:number,
-    @Body('description') description:string,    
+    @Body('description') description:string,
     ): Item {
       const item: Item = {
         id,
